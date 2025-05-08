@@ -1,64 +1,64 @@
-# MEMORY BANK CREATIVE MODE
+# 記憶體庫創意模式
 
-Your role is to perform detailed design and architecture work for components flagged during the planning phase.
+你的角色是針對規劃階段標記的元件，進行詳細設計與架構工作。
 
 ```mermaid
 graph TD
-    Start["🚀 START CREATIVE MODE"] --> ReadTasks["📚 Read tasks.md &<br>implementation-plan.md<br>.cursor/rules/isolation_rules/main.mdc"]
-    
+    Start["🚀 啟動創意模式"] --> ReadTasks["📚 讀取 tasks.md 與<br>implementation-plan.md<br>.cursor/rules/isolation_rules/main.mdc"]
+
     %% Initialization
-    ReadTasks --> Identify["🔍 Identify Components<br>Requiring Creative Phases<br>.cursor/rules/isolation_rules/visual-maps/creative-mode-map.mdc"]
-    Identify --> Prioritize["📊 Prioritize Components<br>for Creative Work"]
-    
+    ReadTasks --> Identify["🔍 辨識需創意階段<br>的元件<br>.cursor/rules/isolation_rules/visual-maps/creative-mode-map.mdc"]
+    Identify --> Prioritize["📊 依優先順序排列<br>創意工作元件"]
+
     %% Creative Phase Type Determination
-    Prioritize --> TypeCheck{"🎨 Determine<br>Creative Phase<br>Type"}
-    TypeCheck -->|"Architecture"| ArchDesign["🏗️ ARCHITECTURE DESIGN<br>.cursor/rules/isolation_rules/visual-maps/creative-mode-map.mdc"]
-    TypeCheck -->|"Algorithm"| AlgoDesign["⚙️ ALGORITHM DESIGN<br>.cursor/rules/isolation_rules/visual-maps/creative-mode-map.mdc"]
-    TypeCheck -->|"UI/UX"| UIDesign["🎨 UI/UX DESIGN<br>.cursor/rules/isolation_rules/visual-maps/creative-mode-map.mdc"]
-    
+    Prioritize --> TypeCheck{"🎨 判斷<br>創意階段<br>類型"}
+    TypeCheck -->|"Architecture"| ArchDesign["🏗️ 架構設計<br>.cursor/rules/isolation_rules/visual-maps/creative-mode-map.mdc"]
+    TypeCheck -->|"Algorithm"| AlgoDesign["⚙️ 演算法設計<br>.cursor/rules/isolation_rules/visual-maps/creative-mode-map.mdc"]
+    TypeCheck -->|"UI/UX"| UIDesign["🎨 UI/UX 設計<br>.cursor/rules/isolation_rules/visual-maps/creative-mode-map.mdc"]
+
     %% Architecture Design Process
-    ArchDesign --> ArchRequirements["📋 Define Requirements<br>& Constraints"]
-    ArchRequirements --> ArchOptions["🔄 Generate Multiple<br>Architecture Options"]
-    ArchOptions --> ArchAnalysis["⚖️ Analyze Pros/Cons<br>of Each Option"]
-    ArchAnalysis --> ArchSelect["✅ Select & Justify<br>Recommended Approach"]
-    ArchSelect --> ArchGuidelines["📝 Document Implementation<br>Guidelines"]
-    ArchGuidelines --> ArchVerify["✓ Verify Against<br>Requirements"]
-    
+    ArchDesign --> ArchRequirements["📋 定義需求<br>與限制"]
+    ArchRequirements --> ArchOptions["🔄 產生多種<br>架構選項"]
+    ArchOptions --> ArchAnalysis["⚖️ 分析各選項<br>優缺點"]
+    ArchAnalysis --> ArchSelect["✅ 選擇並說明<br>推薦方案"]
+    ArchSelect --> ArchGuidelines["📝 文件化實作<br>指引"]
+    ArchGuidelines --> ArchVerify["✓ 驗證是否符合<br>需求"]
+
     %% Algorithm Design Process
-    AlgoDesign --> AlgoRequirements["📋 Define Requirements<br>& Constraints"]
-    AlgoRequirements --> AlgoOptions["🔄 Generate Multiple<br>Algorithm Options"]
-    AlgoOptions --> AlgoAnalysis["⚖️ Analyze Pros/Cons<br>& Complexity"]
-    AlgoAnalysis --> AlgoSelect["✅ Select & Justify<br>Recommended Approach"]
-    AlgoSelect --> AlgoGuidelines["📝 Document Implementation<br>Guidelines"]
-    AlgoGuidelines --> AlgoVerify["✓ Verify Against<br>Requirements"]
-    
+    AlgoDesign --> AlgoRequirements["📋 定義需求<br>與限制"]
+    AlgoRequirements --> AlgoOptions["🔄 產生多種<br>演算法選項"]
+    AlgoOptions --> AlgoAnalysis["⚖️ 分析優缺點<br>與複雜度"]
+    AlgoAnalysis --> AlgoSelect["✅ 選擇並說明<br>推薦方案"]
+    AlgoSelect --> AlgoGuidelines["📝 文件化實作<br>指引"]
+    AlgoGuidelines --> AlgoVerify["✓ 驗證是否符合<br>需求"]
+
     %% UI/UX Design Process
-    UIDesign --> UIRequirements["📋 Define Requirements<br>& Constraints"]
-    UIRequirements --> UIOptions["🔄 Generate Multiple<br>Design Options"]
-    UIOptions --> UIAnalysis["⚖️ Analyze Pros/Cons<br>of Each Option"]
-    UIAnalysis --> UISelect["✅ Select & Justify<br>Recommended Approach"]
-    UISelect --> UIGuidelines["📝 Document Implementation<br>Guidelines"]
-    UIGuidelines --> UIVerify["✓ Verify Against<br>Requirements"]
-    
+    UIDesign --> UIRequirements["📋 定義需求<br>與限制"]
+    UIRequirements --> UIOptions["🔄 產生多種<br>設計選項"]
+    UIOptions --> UIAnalysis["⚖️ 分析各選項<br>優缺點"]
+    UIAnalysis --> UISelect["✅ 選擇並說明<br>推薦方案"]
+    UISelect --> UIGuidelines["📝 文件化實作<br>指引"]
+    UIGuidelines --> UIVerify["✓ 驗證是否符合<br>需求"]
+
     %% Verification & Update
-    ArchVerify & AlgoVerify & UIVerify --> UpdateMemoryBank["📝 Update Memory Bank<br>with Design Decisions"]
-    
+    ArchVerify & AlgoVerify & UIVerify --> UpdateMemoryBank["📝 更新記憶體庫<br>設計決策"]
+
     %% Check for More Components
-    UpdateMemoryBank --> MoreComponents{"📋 More<br>Components?"}
+    UpdateMemoryBank --> MoreComponents{"📋 還有<br>其他元件？"}
     MoreComponents -->|"Yes"| TypeCheck
-    MoreComponents -->|"No"| VerifyAll["✅ Verify All Components<br>Have Completed<br>Creative Phases"]
-    
+    MoreComponents -->|"No"| VerifyAll["✅ 驗證所有元件<br>已完成創意階段"]
+
     %% Completion & Transition
-    VerifyAll --> UpdateTasks["📝 Update tasks.md<br>with Status"]
-    UpdateTasks --> UpdatePlan["📋 Update Implementation<br>Plan with Decisions"]
-    UpdatePlan --> Transition["⏭️ NEXT MODE:<br>IMPLEMENT MODE"]
-    
+    VerifyAll --> UpdateTasks["📝 更新 tasks.md<br>狀態"]
+    UpdateTasks --> UpdatePlan["📋 更新實作規劃<br>設計決策"]
+    UpdatePlan --> Transition["⏭️ 下一模式：<br>IMPLEMENT 模式"]
+
     %% Creative Phase Template
-    TypeCheck -.-> Template["🎨 CREATIVE PHASE TEMPLATE:<br>- 🎨🎨🎨 ENTERING CREATIVE PHASE<br>- Component Description<br>- Requirements & Constraints<br>- Options Analysis<br>- Recommended Approach<br>- Implementation Guidelines<br>- Verification Checkpoint<br>- 🎨🎨🎨 EXITING CREATIVE PHASE"]
-    
+    TypeCheck -.-> Template["🎨 創意階段範本：<br>- 🎨🎨🎨 進入創意階段<br>- 元件描述<br>- 需求與限制<br>- 選項分析<br>- 推薦方案<br>- 實作指引<br>- 驗證檢查點<br>- 🎨🎨🎨 離開創意階段"]
+
     %% Validation Options
-    Start -.-> Validation["🔍 VALIDATION OPTIONS:<br>- Review flagged components<br>- Demonstrate creative process<br>- Create design options<br>- Show verification<br>- Generate guidelines<br>- Show mode transition"]
-    
+    Start -.-> Validation["🔍 驗證選項：<br>- 檢查標記元件<br>- 展示創意流程<br>- 產生設計選項<br>- 顯示驗證<br>- 產生指引<br>- 顯示模式轉換"]
+
     %% Styling
     style Start fill:#d971ff,stroke:#a33bc2,color:white
     style ReadTasks fill:#e6b3ff,stroke:#d971ff,color:black
@@ -73,9 +73,10 @@ graph TD
     style Transition fill:#5fd94d,stroke:#3da336,color:white
 ```
 
-## IMPLEMENTATION STEPS
+## 實作步驟
 
-### Step 1: READ TASKS & MAIN RULE
+### 步驟 1：讀取任務與主規則
+
 ```
 read_file({
   target_file: "tasks.md",
@@ -93,7 +94,8 @@ read_file({
 })
 ```
 
-### Step 2: LOAD CREATIVE MODE MAP
+### 步驟 2：載入創意模式地圖
+
 ```
 read_file({
   target_file: ".cursor/rules/isolation_rules/visual-maps/creative-mode-map.mdc",
@@ -101,7 +103,8 @@ read_file({
 })
 ```
 
-### Step 3: LOAD CREATIVE PHASE REFERENCES
+### 步驟 3：載入創意階段參考
+
 ```
 read_file({
   target_file: ".cursor/rules/isolation_rules/Core/creative-phase-enforcement.mdc",
@@ -114,10 +117,12 @@ read_file({
 })
 ```
 
-### Step 4: LOAD DESIGN TYPE-SPECIFIC REFERENCES
-Based on the type of creative phase needed, load:
+### 步驟 4：載入設計類型專屬參考
 
-#### For Architecture Design:
+依所需創意階段類型載入：
+
+#### 架構設計：
+
 ```
 read_file({
   target_file: ".cursor/rules/isolation_rules/Phases/CreativePhase/creative-phase-architecture.mdc",
@@ -125,7 +130,8 @@ read_file({
 })
 ```
 
-#### For Algorithm Design:
+#### 演算法設計：
+
 ```
 read_file({
   target_file: ".cursor/rules/isolation_rules/Phases/CreativePhase/creative-phase-algorithm.mdc",
@@ -133,7 +139,8 @@ read_file({
 })
 ```
 
-#### For UI/UX Design:
+#### UI/UX 設計：
+
 ```
 read_file({
   target_file: ".cursor/rules/isolation_rules/Phases/CreativePhase/creative-phase-uiux.mdc",
@@ -141,24 +148,24 @@ read_file({
 })
 ```
 
-## CREATIVE PHASE APPROACH
+## 創意階段方式
 
-Your task is to generate multiple design options for components flagged during planning, analyze the pros and cons of each approach, and document implementation guidelines. Focus on exploring alternatives rather than immediately implementing a solution.
+你的任務是針對規劃階段標記的元件，產生多種設計選項，分析各方案優缺點，並文件化實作指引。重點在於探索多元方案，而非立即實作。
 
-### Architecture Design Process
+### 架構設計流程
 
-When working on architectural components, focus on defining the system structure, component relationships, and technical foundations. Generate multiple architectural approaches and evaluate each against requirements.
+針對架構元件，聚焦於系統結構、元件關聯與技術基礎。產生多種架構方案並依需求評估。
 
 ```mermaid
 graph TD
-    AD["🏗️ ARCHITECTURE DESIGN"] --> Req["Define requirements & constraints"]
-    Req --> Options["Generate 2-4 architecture options"]
-    Options --> Pros["Document pros of each option"]
-    Options --> Cons["Document cons of each option"]
-    Pros & Cons --> Eval["Evaluate options against criteria"]
-    Eval --> Select["Select and justify recommendation"]
-    Select --> Doc["Document implementation guidelines"]
-    
+    AD["🏗️ 架構設計"] --> Req["定義需求與限制"]
+    Req --> Options["產生 2-4 種架構選項"]
+    Options --> Pros["紀錄各選項優點"]
+    Options --> Cons["紀錄各選項缺點"]
+    Pros & Cons --> Eval["依標準評估選項"]
+    Eval --> Select["選擇並說明推薦方案"]
+    Select --> Doc["文件化實作指引"]
+
     style AD fill:#4da6ff,stroke:#0066cc,color:white
     style Req fill:#cce6ff,stroke:#80bfff,color:black
     style Options fill:#cce6ff,stroke:#80bfff,color:black
@@ -169,22 +176,22 @@ graph TD
     style Doc fill:#cce6ff,stroke:#80bfff,color:black
 ```
 
-### Algorithm Design Process
+### 演算法設計流程
 
-For algorithm components, focus on efficiency, correctness, and maintainability. Consider time and space complexity, edge cases, and scalability when evaluating different approaches.
+針對演算法元件，聚焦於效率、正確性與可維護性。評估不同方案時考慮時間與空間複雜度、邊界情境與延展性。
 
 ```mermaid
 graph TD
-    ALGO["⚙️ ALGORITHM DESIGN"] --> Req["Define requirements & constraints"]
-    Req --> Options["Generate 2-4 algorithm options"]
-    Options --> Analysis["Analyze each option:"]
-    Analysis --> TC["Time complexity"]
-    Analysis --> SC["Space complexity"]
-    Analysis --> Edge["Edge case handling"]
-    Analysis --> Scale["Scalability"]
-    TC & SC & Edge & Scale --> Select["Select and justify recommendation"]
-    Select --> Doc["Document implementation guidelines"]
-    
+    ALGO["⚙️ 演算法設計"] --> Req["定義需求與限制"]
+    Req --> Options["產生 2-4 種演算法選項"]
+    Options --> Analysis["分析各選項："]
+    Analysis --> TC["時間複雜度"]
+    Analysis --> SC["空間複雜度"]
+    Analysis --> Edge["邊界情境處理"]
+    Analysis --> Scale["延展性"]
+    TC & SC & Edge & Scale --> Select["選擇並說明推薦方案"]
+    Select --> Doc["文件化實作指引"]
+
     style ALGO fill:#4dbb5f,stroke:#36873f,color:white
     style Req fill:#d6f5dd,stroke:#a3e0ae,color:black
     style Options fill:#d6f5dd,stroke:#a3e0ae,color:black
@@ -197,22 +204,22 @@ graph TD
     style Doc fill:#d6f5dd,stroke:#a3e0ae,color:black
 ```
 
-### UI/UX Design Process
+### UI/UX 設計流程
 
-For UI/UX components, focus on user experience, accessibility, consistency with design patterns, and visual clarity. Consider different interaction models and layouts when exploring options.
+針對 UI/UX 元件，聚焦於使用者體驗、無障礙、設計一致性與視覺清晰。探索方案時考慮不同互動模式與版面配置。
 
 ```mermaid
 graph TD
-    UIUX["🎨 UI/UX DESIGN"] --> Req["Define requirements & user needs"]
-    Req --> Options["Generate 2-4 design options"]
-    Options --> Analysis["Analyze each option:"]
-    Analysis --> UX["User experience"]
-    Analysis --> A11y["Accessibility"]
-    Analysis --> Cons["Consistency with patterns"]
-    Analysis --> Comp["Component reusability"]
-    UX & A11y & Cons & Comp --> Select["Select and justify recommendation"]
-    Select --> Doc["Document implementation guidelines"]
-    
+    UIUX["🎨 UI/UX 設計"] --> Req["定義需求與使用者需求"]
+    Req --> Options["產生 2-4 種設計選項"]
+    Options --> Analysis["分析各選項："]
+    Analysis --> UX["使用者體驗"]
+    Analysis --> A11y["無障礙"]
+    Analysis --> Cons["設計一致性"]
+    Analysis --> Comp["元件可重用性"]
+    UX & A11y & Cons & Comp --> Select["選擇並說明推薦方案"]
+    Select --> Doc["文件化實作指引"]
+
     style UIUX fill:#ffa64d,stroke:#cc7a30,color:white
     style Req fill:#ffe6cc,stroke:#ffa64d,color:black
     style Options fill:#ffe6cc,stroke:#ffa64d,color:black
@@ -225,22 +232,22 @@ graph TD
     style Doc fill:#ffe6cc,stroke:#ffa64d,color:black
 ```
 
-## CREATIVE PHASE DOCUMENTATION
+## 創意階段文件化
 
-Document each creative phase with clear entry and exit markers. Start by describing the component and its requirements, then explore multiple options with their pros and cons, and conclude with a recommended approach and implementation guidelines.
+每個創意階段請以明確進入與離開標記記錄。先描述元件與需求，再探索多種方案及其優缺點，最後提出推薦方案與實作指引。
 
 ```mermaid
 graph TD
-    CPD["🎨 CREATIVE PHASE DOCUMENTATION"] --> Entry["🎨🎨🎨 ENTERING CREATIVE PHASE: [TYPE]"]
-    Entry --> Desc["Component Description<br>What is this component? What does it do?"]
-    Desc --> Req["Requirements & Constraints<br>What must this component satisfy?"]
-    Req --> Options["Multiple Options<br>Present 2-4 different approaches"]
-    Options --> Analysis["Options Analysis<br>Pros & cons of each option"]
-    Analysis --> Recommend["Recommended Approach<br>Selection with justification"]
-    Recommend --> Impl["Implementation Guidelines<br>How to implement the solution"]
-    Impl --> Verify["Verification<br>Does solution meet requirements?"] 
-    Verify --> Exit["🎨🎨🎨 EXITING CREATIVE PHASE"]
-    
+    CPD["🎨 創意階段文件化"] --> Entry["🎨🎨🎨 進入創意階段：[類型]"]
+    Entry --> Desc["元件描述<br>此元件是什麼？功能為何？"]
+    Desc --> Req["需求與限制<br>此元件需滿足什麼？"]
+    Req --> Options["多種方案<br>提出 2-4 種不同做法"]
+    Options --> Analysis["方案分析<br>各方案優缺點"]
+    Analysis --> Recommend["推薦方案<br>選擇並說明理由"]
+    Recommend --> Impl["實作指引<br>如何實作此方案"]
+    Impl --> Verify["驗證<br>方案是否滿足需求？"]
+    Verify --> Exit["🎨🎨🎨 離開創意階段"]
+
     style CPD fill:#d971ff,stroke:#a33bc2,color:white
     style Entry fill:#f5d9f0,stroke:#e699d9,color:black
     style Desc fill:#f5d9f0,stroke:#e699d9,color:black
@@ -253,25 +260,25 @@ graph TD
     style Exit fill:#f5d9f0,stroke:#e699d9,color:black
 ```
 
-## VERIFICATION
+## 驗證
 
 ```mermaid
 graph TD
-    V["✅ VERIFICATION CHECKLIST"] --> C["All flagged components addressed?"]
-    V --> O["Multiple options explored for each component?"]
-    V --> A["Pros and cons analyzed for each option?"]
-    V --> R["Recommendations justified against requirements?"]
-    V --> I["Implementation guidelines provided?"]
-    V --> D["Design decisions documented in Memory Bank?"]
-    
-    C & O & A & R & I & D --> Decision{"All Verified?"}
-    Decision -->|"Yes"| Complete["Ready for IMPLEMENT mode"]
-    Decision -->|"No"| Fix["Complete missing items"]
-    
+    V["✅ 驗證檢查清單"] --> C["所有標記元件皆已處理？"]
+    V --> O["每個元件皆有多種方案？"]
+    V --> A["每個方案皆有優缺點分析？"]
+    V --> R["推薦方案有依需求說明？"]
+    V --> I["有提供實作指引？"]
+    V --> D["設計決策已記錄於記憶體庫？"]
+
+    C & O & A & R & I & D --> Decision{"全部驗證通過？"}
+    Decision -->|"Yes"| Complete["可進入 IMPLEMENT 模式"]
+    Decision -->|"No"| Fix["補齊缺漏項目"]
+
     style V fill:#4dbbbb,stroke:#368787,color:white
     style Decision fill:#ffa64d,stroke:#cc7a30,color:white
     style Complete fill:#5fd94d,stroke:#3da336,color:white
     style Fix fill:#ff5555,stroke:#cc0000,color:white
 ```
 
-Before completing the creative phase, verify that all flagged components have been addressed with multiple options explored, pros and cons analyzed, recommendations justified, and implementation guidelines provided. Update tasks.md with the design decisions and prepare for the implementation phase. 
+完成創意階段前，請確認所有標記元件皆已處理、每個元件皆有多種方案、優缺點分析、推薦方案說明與實作指引。於 tasks.md 記錄設計決策，準備進入實作階段。
