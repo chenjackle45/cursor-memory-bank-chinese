@@ -1,33 +1,33 @@
-# VAN MODE: QA TECHNICAL VALIDATION (Pre-BUILD)
+# VAN 模式：QA 技術驗證（進入 BUILD 前）
 
-> **TL;DR:** This map details the technical validation process executed *after* CREATIVE mode and *before* BUILD mode, triggered by the `VAN QA` command. It ensures dependencies, configuration, environment, and basic build functionality are sound.
+> **重點摘要：** 本地圖詳述於 CREATIVE 模式結束、BUILD 模式開始前，由 `VAN QA` 指令觸發的技術驗證流程。確保相依套件、設定、環境與基本建構功能皆正常。
 
-## 🚀 VAN QA MODE ACTIVATION
+## 🚀 VAN QA 模式啟動
 
-After completing CREATIVE mode, when the user types "VAN QA", respond:
+完成 CREATIVE 模式後，當使用者輸入 "VAN QA" 時，請回應：
 
 ```
-User: VAN QA
+使用者：VAN QA
 
-Response: OK VAN QA - Beginning Technical Validation
-Loading QA Validation map...
+回應：OK VAN QA - 開始技術驗證
+正在載入 QA 驗證地圖...
 ```
 
-## 🔄 QA COMMAND PRECEDENCE (QA Override)
+## 🔄 QA 指令優先權（QA 覆蓋）
 
-QA validation can be called at any point (`QA` command) and takes immediate precedence:
+QA 驗證可於任意時機（`QA` 指令）呼叫，並立即取得最高優先權：
 
 ```mermaid
 graph TD
-    UserQA["User Types: QA"] --> HighPriority["⚠️ HIGH PRIORITY COMMAND"]
-    HighPriority --> CurrentTask["Pause Current Task/Process"]
-    CurrentTask --> LoadQA["Load QA Validation Map (This File)"]
-    LoadQA --> RunQA["Execute QA Validation Process"]
-    RunQA --> QAResults{"QA Results"}
+    UserQA["使用者輸入：QA"] --> HighPriority["⚠️ 高優先權指令"]
+    HighPriority --> CurrentTask["暫停目前任務/流程"]
+    CurrentTask --> LoadQA["載入 QA 驗證地圖（本檔案）"]
+    LoadQA --> RunQA["執行 QA 驗證流程"]
+    RunQA --> QAResults{"QA 結果"}
     
-    QAResults -->|"PASS"| ResumeFlow["Resume Prior Process Flow"]
-    QAResults -->|"FAIL"| FixIssues["Fix Identified Issues"]
-    FixIssues --> ReRunQA["Re-run QA Validation"]
+    QAResults -->|"通過"| ResumeFlow["恢復先前流程"]
+    QAResults -->|"失敗"| FixIssues["修正發現問題"]
+    FixIssues --> ReRunQA["重新執行 QA 驗證"]
     ReRunQA --> QAResults
     
     style UserQA fill:#f8d486,stroke:#e8b84d,color:black
@@ -37,40 +37,40 @@ graph TD
     style QAResults fill:#f6546a,stroke:#c30052,color:white
 ```
 
-### QA Interruption Rules
+### QA 中斷規則
 
-1. **Immediate Precedence:** `QA` command interrupts everything.
-2. **Load & Execute:** Load this map (`van-qa-validation.mdc`) and run the full process.
-3. **Remediation Priority:** Fixes take priority over pending mode switches.
-4. **Resume:** On PASS, resume the previous flow.
+1. **立即優先權：** `QA` 指令會中斷一切流程。
+2. **載入與執行：** 載入本地圖（`van-qa-validation.mdc`）並執行完整流程。
+3. **修正優先：** 修正步驟優先於所有待處理模式切換。
+4. **恢復：** 通過時恢復原流程。
 
 ```
-⚠️ QA OVERRIDE ACTIVATED
-All other processes paused
-QA validation checks now running...
-Any issues found MUST be remediated before continuing with normal process flow
+⚠️ QA 覆蓋已啟動
+所有其他流程已暫停
+正在執行 QA 驗證檢查...
+發現任何問題必須先修正，才能繼續正常流程
 ```
 
-## 🔍 TECHNICAL VALIDATION OVERVIEW
+## 🔍 技術驗證總覽
 
-Four-point validation process:
+四點驗證流程：
 
 ```mermaid
 graph TD
-    VANQA["VAN QA MODE"] --> FourChecks["FOUR-POINT VALIDATION"]
+    VANQA["VAN QA 模式"] --> FourChecks["四點驗證"]
     
-    FourChecks --> DepCheck["1️⃣ DEPENDENCY VERIFICATION"]
-    DepCheck --> ConfigCheck["2️⃣ CONFIGURATION VALIDATION"]
-    ConfigCheck --> EnvCheck["3️⃣ ENVIRONMENT VALIDATION"]
-    EnvCheck --> MinBuildCheck["4️⃣ MINIMAL BUILD TEST"]
+    FourChecks --> DepCheck["1️⃣ 相依套件驗證"]
+    DepCheck --> ConfigCheck["2️⃣ 設定檔驗證"]
+    ConfigCheck --> EnvCheck["3️⃣ 環境驗證"]
+    EnvCheck --> MinBuildCheck["4️⃣ 最小建構測試"]
     
-    MinBuildCheck --> ValidationResults{"All Checks<br>Passed?"}
-    ValidationResults -->|"Yes"| SuccessReport["GENERATE SUCCESS REPORT"]
-    ValidationResults -->|"No"| FailureReport["GENERATE FAILURE REPORT"]
+    MinBuildCheck --> ValidationResults{"所有檢查<br>通過？"}
+    ValidationResults -->|"是"| SuccessReport["產生成功報告"]
+    ValidationResults -->|"否"| FailureReport["產生失敗報告"]
     
-    SuccessReport --> BUILD_Transition["Trigger BUILD Mode"]
-    FailureReport --> FixIssues["Fix Technical Issues"]
-    FixIssues --> ReValidate["Re-validate (Re-run VAN QA)"]
+    SuccessReport --> BUILD_Transition["觸發 BUILD 模式"]
+    FailureReport --> FixIssues["修正技術問題"]
+    FixIssues --> ReValidate["重新驗證（重新執行 VAN QA）"]
     ReValidate --> FourChecks
     
     style VANQA fill:#4da6ff,stroke:#0066cc,color:white
@@ -80,17 +80,17 @@ graph TD
     style FixIssues fill:#ff5555,stroke:#dd3333,color:white
 ```
 
-## 🔄 INTEGRATION WITH DESIGN DECISIONS
+## 🔄 與設計決策整合
 
-Reads Creative Phase outputs (e.g., `memory-bank/systemPatterns.md`) to inform validation:
+讀取創意階段產出（如 `memory-bank/systemPatterns.md`）以進行驗證：
 
 ```mermaid
 graph TD
-    Start["Read Design Decisions"] --> ReadCreative["Parse Creative Phase<br>Documentation"]
-    ReadCreative --> ExtractTech["Extract Technology<br>Choices"]
-    ExtractTech --> ExtractDeps["Extract Required<br>Dependencies"]
-    ExtractDeps --> BuildValidationPlan["Build Validation<br>Plan"]
-    BuildValidationPlan --> StartValidation["Start Four-Point<br>Validation Process"]
+    Start["讀取設計決策"] --> ReadCreative["解析創意階段<br>文件"]
+    ReadCreative --> ExtractTech["提取技術<br>選擇"]
+    ExtractTech --> ExtractDeps["提取所需<br>相依套件"]
+    ExtractDeps --> BuildValidationPlan["建立驗證<br>計畫"]
+    BuildValidationPlan --> StartValidation["開始四點<br>驗證流程"]
     
     style Start fill:#4da6ff,stroke:#0066cc,color:white
     style ExtractTech fill:#f6546a,stroke:#c30052,color:white
@@ -98,12 +98,12 @@ graph TD
     style StartValidation fill:#f6546a,stroke:#c30052,color:white
 ```
 
-### Example Technology Extraction (PowerShell):
+### 技術提取範例（PowerShell）：
 ```powershell
-# Example: Extract technology choices from creative phase documentation
+# 範例：從創意階段文件中提取技術選擇
 function Extract-TechnologyChoices {
     $techChoices = @{}
-    # Read from systemPatterns.md
+    # 從 systemPatterns.md 讀取
     if (Test-Path "memory-bank\systemPatterns.md") {
         $content = Get-Content "memory-bank\systemPatterns.md" -Raw
         if ($content -match "Framework:\s*(\w+)") { $techChoices["framework"] = $Matches[1] }
@@ -114,30 +114,30 @@ function Extract-TechnologyChoices {
 }
 ```
 
-## 🔍 DETAILED QA VALIDATION STEPS & SCRIPTS
+## 🔍 詳細 QA 驗證步驟與腳本
 
-### 1️⃣ DEPENDENCY VERIFICATION
+### 1️⃣ 相依套件驗證
 
 ```mermaid
-# Mermaid graph for Dependency Verification (as in original file)
+# 相依套件驗證流程圖
 graph TD
-    Start["Dependency Verification"] --> ReadDeps["Read Required Dependencies<br>from Creative Phase"]
-    ReadDeps --> CheckInstalled["Check if Dependencies<br>are Installed"]
-    CheckInstalled --> DepStatus{"All Dependencies<br>Installed?"}
-    DepStatus -->|"Yes"| VerifyVersions["Verify Versions<br>and Compatibility"]
-    DepStatus -->|"No"| InstallMissing["Install Missing<br>Dependencies"]
+    Start["相依套件驗證"] --> ReadDeps["讀取創意階段所需相依套件"]
+    ReadDeps --> CheckInstalled["檢查相依套件是否已安裝"]
+    CheckInstalled --> DepStatus{"所有相依套件<br>已安裝？"}
+    DepStatus -->|"是"| VerifyVersions["驗證版本與相容性"]
+    DepStatus -->|"否"| InstallMissing["安裝缺少的相依套件"]
     InstallMissing --> VerifyVersions
-    VerifyVersions --> VersionStatus{"Versions<br>Compatible?"}
-    VersionStatus -->|"Yes"| DepSuccess["Dependencies Verified<br>✅ PASS"]
-    VersionStatus -->|"No"| UpgradeVersions["Upgrade/Downgrade<br>as Needed"]
-    UpgradeVersions --> RetryVerify["Retry Verification"]
+    VerifyVersions --> VersionStatus{"版本<br>相容？"}
+    VersionStatus -->|"是"| DepSuccess["相依套件驗證<br>✅ 通過"]
+    VersionStatus -->|"否"| UpgradeVersions["升級/降級至相容版本"]
+    UpgradeVersions --> RetryVerify["重新驗證"]
     RetryVerify --> VersionStatus
     style Start fill:#4da6ff; style DepSuccess fill:#10b981; style DepStatus fill:#f6546a; style VersionStatus fill:#f6546a;
 ```
 
-#### Example Implementation (PowerShell):
+#### 實作範例（PowerShell）：
 ```powershell
-# Verify-Dependencies function (as in original file)
+# Verify-Dependencies 函數範例
 function Verify-Dependencies {
     $requiredDeps = @{ "node" = ">=14.0.0"; "npm" = ">=6.0.0" }
     $missingDeps = @(); $incompatibleDeps = @()
@@ -147,9 +147,9 @@ function Verify-Dependencies {
 }
 ```
 
-#### Example Implementation (Bash):
+#### 實作範例（Bash）：
 ```bash
-# verify_dependencies function (as in original file)
+# verify_dependencies 函數範例
 verify_dependencies() {
     local missing_deps=(); local incompatible_deps=()
     if command -v node &> /dev/null; then node_version=$(node -v); if [[ $node_version =~ v([0-9]+) ]]; then if (( ${BASH_REMATCH[1]} < 14 )); then incompatible_deps+=("node"); fi; fi; else missing_deps+=("node"); fi
@@ -158,30 +158,30 @@ verify_dependencies() {
 }
 ```
 
-### 2️⃣ CONFIGURATION VALIDATION
+### 2️⃣ 設定檔驗證
 
 ```mermaid
-# Mermaid graph for Configuration Validation (as in original file)
+# 設定檔驗證流程圖
 graph TD
-    Start["Configuration Validation"] --> IdentifyConfigs["Identify Files"]
-    IdentifyConfigs --> ReadConfigs["Read Files"]
-    ReadConfigs --> ValidateSyntax["Validate Syntax"]
-    ValidateSyntax --> SyntaxStatus{"Valid?"}
-    SyntaxStatus -->|"Yes"| CheckCompatibility["Check Compatibility"]
-    SyntaxStatus -->|"No"| FixSyntax["Fix Syntax"]
-    FixSyntax --> RetryValidate["Retry"]
+    Start["設定檔驗證"] --> IdentifyConfigs["識別檔案"]
+    IdentifyConfigs --> ReadConfigs["讀取檔案"]
+    ReadConfigs --> ValidateSyntax["驗證語法"]
+    ValidateSyntax --> SyntaxStatus{"有效？"}
+    SyntaxStatus -->|"是"| CheckCompatibility["檢查相容性"]
+    SyntaxStatus -->|"否"| FixSyntax["修正語法"]
+    FixSyntax --> RetryValidate["重新驗證"]
     RetryValidate --> SyntaxStatus
-    CheckCompatibility --> CompatStatus{"Compatible?"}
-    CompatStatus -->|"Yes"| ConfigSuccess["Configs Validated ✅ PASS"]
-    CompatStatus -->|"No"| AdaptConfigs["Adapt Configs"]
-    AdaptConfigs --> RetryCompat["Retry Check"]
+    CheckCompatibility --> CompatStatus{"相容？"}
+    CompatStatus -->|"是"| ConfigSuccess["設定檔驗證 ✅ 通過"]
+    CompatStatus -->|"否"| AdaptConfigs["調整設定檔"]
+    AdaptConfigs --> RetryCompat["重新檢查"]
     RetryCompat --> CompatStatus
     style Start fill:#4da6ff; style ConfigSuccess fill:#10b981; style SyntaxStatus fill:#f6546a; style CompatStatus fill:#f6546a;
 ```
 
-#### Example Implementation (PowerShell):
+#### 實作範例（PowerShell）：
 ```powershell
-# Validate-Configurations function (as in original file)
+# Validate-Configurations 函數範例
 function Validate-Configurations {
     $configFiles = @("package.json", "tsconfig.json", "vite.config.js")
     $invalidConfigs = @(); $incompatibleConfigs = @()
@@ -195,29 +195,29 @@ function Validate-Configurations {
 }
 ```
 
-### 3️⃣ ENVIRONMENT VALIDATION
+### 3️⃣ 環境驗證
 
 ```mermaid
-# Mermaid graph for Environment Validation (as in original file)
+# 環境驗證流程圖
 graph TD
-    Start["Environment Validation"] --> CheckEnv["Check Env"]
-    CheckEnv --> VerifyBuildTools["Verify Tools"]
-    VerifyBuildTools --> ToolsStatus{"Available?"}
-    ToolsStatus -->|"Yes"| CheckPerms["Check Permissions"]
-    ToolsStatus -->|"No"| InstallTools["Install Tools"]
-    InstallTools --> RetryTools["Retry"]
+    Start["環境驗證"] --> CheckEnv["檢查環境"]
+    CheckEnv --> VerifyBuildTools["驗證工具"]
+    VerifyBuildTools --> ToolsStatus{"可用？"}
+    ToolsStatus -->|"是"| CheckPerms["檢查權限"]
+    ToolsStatus -->|"否"| InstallTools["安裝工具"]
+    InstallTools --> RetryTools["重新驗證"]
     RetryTools --> ToolsStatus
-    CheckPerms --> PermsStatus{"Sufficient?"}
-    PermsStatus -->|"Yes"| EnvSuccess["Environment Validated ✅ PASS"]
-    PermsStatus -->|"No"| FixPerms["Fix Permissions"]
-    FixPerms --> RetryPerms["Retry Check"]
+    CheckPerms --> PermsStatus{"足夠？"}
+    PermsStatus -->|"是"| EnvSuccess["環境驗證 ✅ 通過"]
+    PermsStatus -->|"否"| FixPerms["修正權限"]
+    FixPerms --> RetryPerms["重新檢查"]
     RetryPerms --> PermsStatus
     style Start fill:#4da6ff; style EnvSuccess fill:#10b981; style ToolsStatus fill:#f6546a; style PermsStatus fill:#f6546a;
 ```
 
-#### Example Implementation (PowerShell):
+#### 實作範例（PowerShell）：
 ```powershell
-# Validate-Environment function (as in original file)
+# Validate-Environment 函數範例
 function Validate-Environment {
     $requiredTools = @(@{Name='git';Cmd='git --version'},@{Name='node';Cmd='node --version'},@{Name='npm';Cmd='npm --version'})
     $missingTools = @(); $permissionIssues = @()
@@ -228,29 +228,29 @@ function Validate-Environment {
 }
 ```
 
-### 4️⃣ MINIMAL BUILD TEST
+### 4️⃣ 最小建構測試
 
 ```mermaid
-# Mermaid graph for Minimal Build Test (as in original file)
+# 最小建構測試流程圖
 graph TD
-    Start["Minimal Build Test"] --> CreateTest["Create Test Proj"]
-    CreateTest --> BuildTest["Attempt Build"]
-    BuildTest --> BuildStatus{"Success?"}
-    BuildStatus -->|"Yes"| RunTest["Run Basic Test"]
-    BuildStatus -->|"No"| FixBuild["Fix Build Issues"]
-    FixBuild --> RetryBuild["Retry Build"]
+    Start["最小建構測試"] --> CreateTest["建立測試專案"]
+    CreateTest --> BuildTest["嘗試建構"]
+    BuildTest --> BuildStatus{"成功？"}
+    BuildStatus -->|"是"| RunTest["執行基本測試"]
+    BuildStatus -->|"否"| FixBuild["修正建構問題"]
+    FixBuild --> RetryBuild["重新嘗試建構"]
     RetryBuild --> BuildStatus
-    RunTest --> TestStatus{"Passed?"}
-    TestStatus -->|"Yes"| TestSuccess["Build Test ✅ PASS"]
-    TestStatus -->|"No"| FixTest["Fix Test Issues"]
-    FixTest --> RetryTest["Retry Test"]
+    RunTest --> TestStatus{"通過？"}
+    TestStatus -->|"是"| TestSuccess["建構測試 ✅ 通過"]
+    TestStatus -->|"否"| FixTest["修正測試問題"]
+    FixTest --> RetryTest["重新測試"]
     RetryTest --> TestStatus
     style Start fill:#4da6ff; style TestSuccess fill:#10b981; style BuildStatus fill:#f6546a; style TestStatus fill:#f6546a;
 ```
 
-#### Example Implementation (PowerShell):
+#### 實作範例（PowerShell）：
 ```powershell
-# Perform-MinimalBuildTest function (as in original file)
+# Perform-MinimalBuildTest 函數範例
 function Perform-MinimalBuildTest {
     $buildSuccess = $false; $testSuccess = $false; $testDir = ".__build_test"
     if (Test-Path $testDir) { Remove-Item $testDir -Recurse -Force }
@@ -265,59 +265,59 @@ function Perform-MinimalBuildTest {
 }
 ```
 
-## 📝 VALIDATION REPORT FORMATS
+## 📝 驗證報告格式
 
-### Comprehensive Success Report:
+### 綜合成功報告：
 ```
-╔═════════════════════ 🔍 QA VALIDATION REPORT ══════════════════════╗
-│ PROJECT: [Project Name] | TIMESTAMP: [Current Date/Time]            │
-├─────────────────────────────────────────────────────────────────────┤
-│ 1️⃣ DEPENDENCIES: ✓ Compatible                                       │
-│ 2️⃣ CONFIGURATION: ✓ Valid & Compatible                             │
-│ 3️⃣ ENVIRONMENT: ✓ Ready                                             │
-│ 4️⃣ MINIMAL BUILD: ✓ Successful & Passed                            │
-├─────────────────────────────────────────────────────────────────────┤
-│ 🚨 FINAL VERDICT: PASS                                              │
-│ ➡️ Clear to proceed to BUILD mode                                   │
-╚═════════════════════════════════════════════════════════════════════╝
-```
-
-### Detailed Failure Report:
-```
-⚠️⚠️⚠️ QA VALIDATION FAILED ⚠️⚠️⚠️
-Issues must be resolved before BUILD mode:
-
-1️⃣ DEPENDENCY ISSUES: [Details/Fix]
-2️⃣ CONFIGURATION ISSUES: [Details/Fix]
-3️⃣ ENVIRONMENT ISSUES: [Details/Fix]
-4️⃣ BUILD TEST ISSUES: [Details/Fix]
-
-⚠️ BUILD MODE BLOCKED. Type 'VAN QA' after fixing to re-validate.
+╔═════════════════════ 🔍 QA 驗證報告 ══════════════════════╗
+│ 專案： [專案名稱] | 時間戳： [當前日期/時間]               │
+├───────────────────────────────────────────────────────────┤
+│ 1️⃣ 相依套件：✓ 相容                                       │
+│ 2️⃣ 設定檔：✓ 有效且相容                                   │
+│ 3️⃣ 環境：✓ 準備就緒                                       │
+│ 4️⃣ 最小建構：✓ 成功且通過                                 │
+├───────────────────────────────────────────────────────────┤
+│ 🚨 最終判定：通過                                         │
+│ ➡️ 可進入 BUILD 模式                                      │
+╚═══════════════════════════════════════════════════════════╝
 ```
 
-## 🧪 COMMON QA VALIDATION FIXES
+### 詳細失敗報告：
+```
+⚠️⚠️⚠️ QA 驗證失敗 ⚠️⚠️⚠️
+在進入 BUILD 模式前必須解決以下問題：
 
-- **Dependencies:** Install Node/npm, run `npm install`, check versions.
-- **Configuration:** Validate JSON, check required plugins (e.g., React for Vite), ensure TSConfig compatibility.
-- **Environment:** Check permissions (Admin/sudo), ensure ports are free, install missing CLI tools (git, etc.).
-- **Build Test:** Check logs for errors, verify minimal config, check path separators.
+1️⃣ 相依性問題：[細節/修正]
+2️⃣ 設定檔問題：[細節/修正]
+3️⃣ 環境問題：[細節/修正]
+4️⃣ 建構測試問題：[細節/修正]
 
-## 🔒 BUILD MODE PREVENTION MECHANISM
+⚠️ BUILD 模式被阻擋。修正後請輸入 'VAN QA' 重新驗證。
+```
 
-Logic to check QA status before allowing BUILD mode transition.
+## 🧪 常見 QA 驗證修正
+
+- **相依套件：** 安裝 Node/npm，執行 `npm install`，檢查版本。
+- **設定檔：** 驗證 JSON，檢查必要外掛（如 Vite 需 React），確保 TSConfig 相容。
+- **環境：** 檢查權限（管理員/sudo）、確保埠可用、安裝缺少 CLI 工具（git 等）。
+- **建構測試：** 檢查日誌錯誤、驗證最小配置、檢查路徑分隔符。
+
+## 🔒 BUILD 模式阻擋機制
+
+進入 BUILD 模式前檢查 QA 狀態的邏輯。
 
 ```mermaid
 graph TD
-    Start["User Types: BUILD"] --> CheckQA{"QA Validation<br>Passed?"}
-    CheckQA -->|"Yes"| AllowBuild["Allow BUILD Mode"]
-    CheckQA -->|"No"| BlockBuild["BLOCK BUILD MODE"]
-    BlockBuild --> Message["Display:<br>⚠️ QA VALIDATION REQUIRED"]
-    Message --> ReturnToVANQA["Prompt: Type VAN QA"]
+    Start["使用者輸入：BUILD"] --> CheckQA{"QA 驗證<br>通過？"}
+    CheckQA -->|"是"| AllowBuild["允許進入 BUILD 模式"]
+    CheckQA -->|"否"| BlockBuild["阻擋 BUILD 模式"]
+    BlockBuild --> Message["顯示：<br>⚠️ 需先完成 QA 驗證"]
+    Message --> ReturnToVANQA["提示：請輸入 VAN QA"]
     
     style CheckQA fill:#f6546a; style BlockBuild fill:#ff0000,stroke:#990000; style Message fill:#ff5555; style ReturnToVANQA fill:#4da6ff;
 ```
 
-### Example Implementation (PowerShell):
+### 實作範例（PowerShell）：
 ```powershell
 # Example: Check QA status before allowing BUILD
 function Check-QAValidationStatus {
@@ -325,39 +325,39 @@ function Check-QAValidationStatus {
     if (Test-Path $qaStatusFile) {
         if ((Get-Content $qaStatusFile -Raw) -match "PASS") { return $true }
     }
-    Write-Output "🚫 BUILD MODE BLOCKED: QA VALIDATION REQUIRED. Type 'VAN QA'. 🚫"
+    Write-Output "🚫 BUILD 模式被阻擋：需先完成 QA 驗證。請輸入 'VAN QA' 進行驗證。 🚫"
     return $false
 }
 ```
 
-## 🚨 MODE TRANSITION TRIGGERS (Relevant to QA)
+## 🚨 模式切換觸發（與 QA 相關）
 
-### CREATIVE to VAN QA Transition:
+### CREATIVE → VAN QA 切換：
 ```
-⏭️ NEXT MODE: VAN QA
-To validate technical requirements before implementation, please type 'VAN QA'
-```
-
-### VAN QA to BUILD Transition (On Success):
-```
-✅ TECHNICAL VALIDATION COMPLETE
-All prerequisites verified successfully
-You may now proceed to BUILD mode
-Type 'BUILD' to begin implementation
+⏭️ 下一模式：VAN QA
+為驗證技術需求，請輸入 'VAN QA'
 ```
 
-## 📋 FINAL QA VALIDATION CHECKPOINT
-
+### VAN QA → BUILD 切換（通過時）：
 ```
-✓ SECTION CHECKPOINT: QA VALIDATION
-- Dependency Verification Passed? [YES/NO]
-- Configuration Validation Passed? [YES/NO]
-- Environment Validation Passed? [YES/NO]
-- Minimal Build Test Passed? [YES/NO]
-
-→ If all YES: Ready for BUILD mode transition.
-→ If any NO: Fix identified issues and re-run VAN QA.
+✅ 技術驗證完成
+所有前置條件已驗證
+可進入 BUILD 模式
+輸入 'BUILD' 開始實作
 ```
 
-**Next Step (on PASS):** Trigger BUILD mode.
-**Next Step (on FAIL):** Address issues and re-run `VAN QA`. 
+## 📋 最終 QA 驗證檢查點
+
+```
+✓ 區段檢查點：QA 驗證
+- 相依套件驗證通過？ [是/否]
+- 設定檔驗證通過？ [是/否]
+- 環境驗證通過？ [是/否]
+- 最小建構測試通過？ [是/否]
+
+→ 全部為是：可進入 BUILD 模式。
+→ 任一為否：修正問題後重新執行 VAN QA。
+```
+
+**通過時下一步：** 觸發 BUILD 模式。
+**失敗時下一步：** 修正問題並重新執行 `VAN QA`。
