@@ -1,5 +1,7 @@
 # Memory Bank System v0.7-beta
 
+[中文說明](README_chinese.md) | English
+
 A token-optimized, hierarchical task management system that integrates with Cursor custom modes for efficient development workflows.
 
 ```mermaid
@@ -8,14 +10,14 @@ graph TD
     Main --> Rules["Hierarchical Rule Loading"]
     Main --> Visual["Visual Process Maps"]
     Main --> Token["Token Optimization"]
-    
+
     Modes --> VAN["VAN: Initialization"]
     Modes --> PLAN["PLAN: Task Planning"]
     Modes --> CREATIVE["CREATIVE: Design"]
     Modes --> IMPLEMENT["IMPLEMENT: Building"]
     Modes --> REFLECT["REFLECT: Review"]
     Modes --> ARCHIVE["ARCHIVE: Documentation"]
-    
+
     style Main fill:#4da6ff,stroke:#0066cc,color:white
     style Modes fill:#f8d486,stroke:#e8b84d,color:black
     style Rules fill:#80ffaa,stroke:#4dbb5f,color:black
@@ -91,6 +93,7 @@ git clone https://github.com/vanzan01/cursor-memory-bank.git
 Alternatively, you can download the ZIP file from GitHub and extract it to your project folder.
 
 This provides you with all the necessary files, including:
+
 - Rule files in `.cursor/rules/isolation_rules/`
 - Mode instruction files in `custom_modes/` directory
 - Template Memory Bank files in `memory-bank/`
@@ -131,21 +134,25 @@ This provides you with all the necessary files, including:
 For each mode, configure as follows:
 
 1. **VAN MODE** (Initialization)
+
    - **Name**: 🔍 VAN
    - **Tools**: Enable "Codebase Search", "Read File", "Terminal", "List Directory"
    - **Advanced options**: Paste from `custom_modes/van_instructions.md`
 
 2. **PLAN MODE** (Task Planning)
+
    - **Name**: 📋 PLAN
    - **Tools**: Enable "Codebase Search", "Read File", "Terminal", "List Directory"
    - **Advanced options**: Paste from `custom_modes/plan_instructions.md`
 
 3. **CREATIVE MODE** (Design Decisions)
+
    - **Name**: 🎨 CREATIVE
    - **Tools**: Enable "Codebase Search", "Read File", "Terminal", "List Directory", "Edit File"
    - **Advanced options**: Paste from `custom_modes/creative_instructions.md`
 
 4. **IMPLEMENT MODE** (Code Implementation)
+
    - **Name**: ⚒️ IMPLEMENT
    - **Tools**: Enable all tools
    - **Advanced options**: Paste from `custom_modes/implement_instructions.md`
@@ -154,7 +161,6 @@ For each mode, configure as follows:
    - **Name**: 🔍 REFLECT
    - **Tools**: Enable "Codebase Search", "Read File", "Terminal", "List Directory"
    - **Advanced options**: Paste from `custom_modes/reflect_archive_instructions.md` (REFLECT section)
-   
 6. **ARCHIVE MODE** (Documentation)
    - **Name**: 📚 ARCHIVE
    - **Tools**: Enable "Codebase Search", "Read File", "Terminal", "List Directory", "Edit File"
@@ -171,11 +177,13 @@ QA is not a separate custom mode but rather a set of validation functions that c
 ## Basic Usage
 
 1. **Start with VAN Mode**:
+
    - Switch to VAN mode in Cursor
    - Type "VAN" to initiate the initialization process
    - VAN will analyze your project structure and determine complexity
 
 2. **Follow the Workflow Based on Complexity**:
+
    - **Level 1 tasks**: May proceed directly to IMPLEMENT after VAN
    - **Level 2 tasks**: Simplified workflow (VAN → PLAN → IMPLEMENT → REFLECT)
    - **Level 3-4 tasks**: Full workflow (VAN → PLAN → CREATIVE → IMPLEMENT → REFLECT → ARCHIVE)
@@ -203,7 +211,7 @@ graph LR
         Creative["creative-*.md<br>Design Decisions"]
         Reflect["reflect-*.md<br>Review Documents"]
     end
-    
+
     style Tasks fill:#f9d77e,stroke:#d9b95c,stroke-width:3px
     style Active fill:#a8d5ff,stroke:#88b5e0
     style Progress fill:#c5e8b7,stroke:#a5c897
@@ -214,20 +222,22 @@ graph LR
 - **tasks.md**: Central source of truth for task tracking
 - **activeContext.md**: Maintains focus of current development phase
 - **progress.md**: Tracks implementation status
-- **creative-*.md**: Design decision documents generated during CREATIVE mode
-- **reflect-*.md**: Review documents created during REFLECT mode
+- **creative-\*.md**: Design decision documents generated during CREATIVE mode
+- **reflect-\*.md**: Review documents created during REFLECT mode
 
 ## Troubleshooting
 
 ### Common Issues
 
 1. **Mode not responding correctly**:
+
    - Verify custom instructions were copied completely (this is the most common issue)
    - Ensure the correct tools are enabled for each mode
    - Check that you've switched to the correct mode before issuing commands
    - Make sure you pasted the instructions in the "Advanced options" text box
 
 2. **Rules not loading**:
+
    - Make sure the `.cursor/rules/isolation_rules/` directory is in the correct location
    - Verify file permissions allow reading the rule files
 
@@ -259,4 +269,4 @@ The Memory Bank system is actively being developed and improved. Key points to u
 
 ---
 
-*Note: This README is for v0.7-beta and subject to change as the system evolves.*
+_Note: This README is for v0.7-beta and subject to change as the system evolves._

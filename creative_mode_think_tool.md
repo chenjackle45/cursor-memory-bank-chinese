@@ -1,5 +1,7 @@
 # CREATIVE Mode and Claude's "Think" Tool
 
+[中文說明](creative_mode_think_tool_chinese.md) | English
+
 This document explains how Memory Bank's CREATIVE mode implements concepts similar to Anthropic's Claude "Think" tool methodology, as described in their [engineering blog](https://www.anthropic.com/engineering/claude-think-tool).
 
 ## Conceptual Parallels
@@ -14,20 +16,20 @@ graph TD
         CT3 --> CT4["4: Select & Document Decision"]
         CT4 --> CT5["5: Validate Decision"]
     end
-    
+
     subgraph "Memory Bank CREATIVE Mode"
         CM1["1: Component Breakdown"] --> CM2["2: Option Exploration"]
         CM2 --> CM3["3: Trade-off Analysis"]
         CM3 --> CM4["4: Decision Documentation"]
         CM4 --> CM5["5: Decision Verification"]
     end
-    
+
     style CT1 fill:#f9d77e,stroke:#d9b95c
     style CT2 fill:#f9d77e,stroke:#d9b95c
     style CT3 fill:#f9d77e,stroke:#d9b95c
     style CT4 fill:#f9d77e,stroke:#d9b95c
     style CT5 fill:#f9d77e,stroke:#d9b95c
-    
+
     style CM1 fill:#a8d5ff,stroke:#88b5e0
     style CM2 fill:#a8d5ff,stroke:#88b5e0
     style CM3 fill:#a8d5ff,stroke:#88b5e0
@@ -71,14 +73,17 @@ The CREATIVE mode provides templates for breaking down complex components:
 # Component: [Component Name]
 
 ## Functional Requirements
+
 - [Requirement 1]
 - [Requirement 2]
 
 ## Technical Constraints
+
 - [Constraint 1]
 - [Constraint 2]
 
 ## Integration Points
+
 - [Integration Point 1]
 - [Integration Point 2]
 ```
@@ -91,12 +96,15 @@ For exploring design alternatives:
 # Design Option: [Option Name]
 
 ## Core Approach
+
 [Brief description of approach]
 
 ## Implementation Details
+
 [Key implementation considerations]
 
 ## Preliminary Assessment
+
 - **Strengths**: [List strengths]
 - **Weaknesses**: [List weaknesses]
 - **Unknowns**: [List unknowns]
@@ -109,15 +117,16 @@ For systematic comparison of options:
 ```markdown
 # Trade-off Analysis
 
-| Criterion | Option A | Option B | Option C |
-|-----------|----------|----------|----------|
-| Performance | Rating | Rating | Rating |
-| Maintainability | Rating | Rating | Rating |
-| Scalability | Rating | Rating | Rating |
-| Complexity | Rating | Rating | Rating |
-| Risk | Rating | Rating | Rating |
+| Criterion       | Option A | Option B | Option C |
+| --------------- | -------- | -------- | -------- |
+| Performance     | Rating   | Rating   | Rating   |
+| Maintainability | Rating   | Rating   | Rating   |
+| Scalability     | Rating   | Rating   | Rating   |
+| Complexity      | Rating   | Rating   | Rating   |
+| Risk            | Rating   | Rating   | Rating   |
 
 ## Detailed Analysis
+
 [Detailed discussion of trade-offs]
 ```
 
@@ -129,15 +138,19 @@ For capturing final decisions with rationales:
 # Design Decision: [Decision Name]
 
 ## Selected Approach
+
 [Description of selected approach]
 
 ## Rationale
+
 [Explanation of why this approach was selected]
 
 ## Discarded Alternatives
+
 [Brief description of alternatives considered but not selected]
 
 ## Implementation Guidance
+
 [Notes to guide implementation]
 ```
 
@@ -254,4 +267,4 @@ The goal is to maintain the core methodology while continually improving its pra
 
 ---
 
-*Note: This document describes how Memory Bank v0.6-beta implements concepts similar to Claude's "Think" tool methodology. The implementation will continue to evolve as both systems mature.* 
+_Note: This document describes how Memory Bank v0.6-beta implements concepts similar to Claude's "Think" tool methodology. The implementation will continue to evolve as both systems mature._

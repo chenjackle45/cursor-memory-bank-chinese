@@ -1,5 +1,7 @@
 # Memory Bank System Optimizations
 
+[中文說明](MEMORY_BANK_OPTIMIZATIONS_chinese.md) | English
+
 This document presents a comprehensive overview of the optimizations implemented to enhance the Memory Bank system's token efficiency, context management, and overall performance.
 
 ## 🚀 Core Optimizations
@@ -63,16 +65,19 @@ Central coordination of all optimizations:
 ### Core System
 
 1. [/.cursor/rules/isolation_rules/main-optimized.mdc](/.cursor/rules/isolation_rules/main-optimized.mdc)
+
    - New optimized main rule file
    - Implements adaptive complexity model
    - Integrates all optimizations
 
 2. [/.cursor/rules/isolation_rules/Core/hierarchical-rule-loading.mdc](/.cursor/rules/isolation_rules/Core/hierarchical-rule-loading.mdc)
+
    - New hierarchical rule loading system
    - Implements rule caching and lazy loading
    - Significant token reduction
 
 3. [/.cursor/rules/isolation_rules/Core/mode-transition-optimization.mdc](/.cursor/rules/isolation_rules/Core/mode-transition-optimization.mdc)
+
    - New optimized mode transition protocol
    - Preserves context between modes
    - Reduces transition overhead
@@ -99,16 +104,19 @@ Central coordination of all optimizations:
 ## 💡 Key Innovations
 
 1. **Hierarchical Rule Structure**
+
    - Organized rules into core, common, mode-specific, and specialized
    - Implemented rule dependency tracking
    - Created caching system for frequently used rules
 
 2. **Progressive Documentation**
+
    - Created concise initial templates
    - Implemented "detail on demand" approach
    - Used visual indicators and compact formats
 
 3. **Unified Context Transfer**
+
    - Standardized context preservation between modes
    - Created efficient transition documents
    - Implemented selective context updating
@@ -121,12 +129,14 @@ Central coordination of all optimizations:
 ## 🔄 Workflow Comparison
 
 ### Original Workflow
+
 1. Load all rules for current mode
 2. Process according to mode requirements
 3. Complete documentation per template
 4. Switch to next mode with minimal context preservation
 
 ### Optimized Workflow
+
 1. Load only essential rules initially
 2. Load specialized rules as needed
 3. Use progressive documentation appropriate to complexity
@@ -136,11 +146,13 @@ Central coordination of all optimizations:
 ## 🌟 Benefits Beyond Token Efficiency
 
 1. **Improved User Experience**
+
    - Faster responses due to reduced token usage
    - More consistent context preservation
    - More efficient workflows
 
 2. **Enhanced Flexibility**
+
    - Better adaptation to different task complexities
    - More scalable architecture
    - Configurable optimization settings
@@ -166,14 +178,17 @@ The optimizations have been designed to maintain full compatibility with the exi
 ## 🔮 Future Optimization Opportunities
 
 1. **Dynamic Template Generation**
+
    - Generate templates on-the-fly based on task characteristics
    - Further reduce boilerplate content
 
 2. **Automatic Context Summarization**
+
    - Intelligently compress context for long-running tasks
    - Prioritize most relevant context information
 
 3. **Cross-Task Knowledge Preservation**
+
    - Maintain key learnings across different tasks
    - Build a knowledge base of common solutions
 
