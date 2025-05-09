@@ -1,6 +1,6 @@
 # Memory Bank System Optimizations
 
-[中文說明](MEMORY_BANK_OPTIMIZATIONS_chinese.md) | English
+[中文說明](./中文化/MEMORY_BANK_OPTIMIZATIONS_chinese.md) | English
 
 This document presents a comprehensive overview of the optimizations implemented to enhance the Memory Bank system's token efficiency, context management, and overall performance.
 

@@ -1,6 +1,6 @@
 # Memory Bank 系統 v0.7-beta
 
-[English](README.md) | 中文說明
+[English](../README.md) | 中文說明
 
 一個針對 token 最佳化、分層式任務管理系統，整合 Cursor 自訂模式，提升開發流程效率。
 
@@ -40,7 +40,7 @@ Memory Bank 是一個個人專案，提供結構化的開發流程，針對不�
 - **最佳化模式切換**：於模式間有效保留關鍵上下文
 - **等級專屬流程**：依任務複雜度調整文件需求
 
-詳見 [Memory Bank 最佳化說明](MEMORY_BANK_OPTIMIZATIONS.md) 文件，了解所有最佳化方式。
+詳見 [Memory Bank 最佳化說明](MEMORY_BANK_OPTIMIZATIONS_chinese.md) 文件，了解所有最佳化方式。
 
 ### 超越基本自訂模式
 
@@ -63,7 +63,7 @@ Memory Bank 的 CREATIVE 模式概念上參考 Anthropic Claude「Think」工具
 - 隨複雜度擴展的結構化模板
 - 實作階段的高效上下文保留
 
-詳見 [CREATIVE 模式與 Claude「Think」工具](creative_mode_think_tool.md) 文件。
+詳見 [CREATIVE 模式與 Claude「Think」工具](creative_mode_think_tool_chinese.md) 文件。
 
 ## 主要特色
 

@@ -1,6 +1,6 @@
 # CREATIVE Mode and Claude's "Think" Tool
 
-[中文說明](creative_mode_think_tool_chinese.md) | English
+[中文說明](./中文化/creative_mode_think_tool_chinese.md) | English
 
 This document explains how Memory Bank's CREATIVE mode implements concepts similar to Anthropic's Claude "Think" tool methodology, as described in their [engineering blog](https://www.anthropic.com/engineering/claude-think-tool).
 

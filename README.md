@@ -1,6 +1,6 @@
 # Memory Bank System v0.7-beta
 
-[中文說明](README_chinese.md) | English
+[中文說明](./中文化/README_chinese.md) | English
 
 A token-optimized, hierarchical task management system that integrates with Cursor custom modes for efficient development workflows.
 
@@ -40,7 +40,7 @@ Version 0.7-beta introduces significant token optimization improvements:
 - **Optimized Mode Transitions**: Preserves critical context efficiently between modes
 - **Level-Specific Workflows**: Adapts documentation requirements to task complexity
 
-See the [Memory Bank Optimizations](MEMORY_BANK_OPTIMIZATIONS.md) document for detailed information about all optimization approaches.
+詳見 [Memory Bank 最佳化說明](./中文化/MEMORY_BANK_OPTIMIZATIONS_chinese.md) 文件，了解所有最佳化方式。
 
 ### Beyond Basic Custom Modes
 
@@ -56,12 +56,12 @@ This approach transforms custom modes from simple AI personalities into componen
 
 ### CREATIVE Mode and Claude's "Think" Tool
 
-The CREATIVE mode in Memory Bank is conceptually based on Anthropic's Claude "Think" tool methodology, as described in their [engineering blog](https://www.anthropic.com/engineering/claude-think-tool). The v0.7-beta implements an optimized version with:
+Memory Bank 的 CREATIVE 模式概念上參考 Anthropic Claude「Think」工具方法論，詳見其 [工程部落格](https://www.anthropic.com/engineering/claude-think-tool)。v0.7-beta 版實作了最佳化版本，具備：
 
 - Progressive documentation with tabular option comparison
 - "Detail-on-demand" approach that preserves token efficiency
 - Structured templates that scale with complexity level
-- Efficient context preservation for implementation phases
+- 實作階段的高效上下文保留
 
 For a detailed explanation of how Memory Bank implements these principles, see the [CREATIVE Mode and Claude's "Think" Tool](creative_mode_think_tool.md) document.
 

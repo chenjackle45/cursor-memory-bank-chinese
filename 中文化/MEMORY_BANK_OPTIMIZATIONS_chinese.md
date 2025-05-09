@@ -1,6 +1,6 @@
 # Memory Bank 系統最佳化
 
-[English](MEMORY_BANK_OPTIMIZATIONS.md) | 中文說明
+[English](../MEMORY_BANK_OPTIMIZATIONS.md) | 中文說明
 
 本文件全面說明為提升 Memory Bank 系統 token 效率、上下文管理與整體效能所實施的最佳化措施。
 

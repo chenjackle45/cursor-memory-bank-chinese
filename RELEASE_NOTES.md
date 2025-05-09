@@ -1,6 +1,6 @@
 # Memory Bank System Release Notes
 
-[中文說明](RELEASE_NOTES_chinese.md) | English
+[中文說明](./中文化/RELEASE_NOTES_chinese.md) | English
 
 > **Personal Note**: Memory Bank is my personal hobby project that I develop for my own use in coding projects. As this is a personal project, I don't maintain an issues tracker or actively collect feedback. However, if you're using these rules and encounter issues, one of the great advantages is that you can ask the Cursor AI directly to modify or update the rules to better suit your specific workflow. The system is designed to be adaptable by the AI, allowing you to customize it for your own needs without requiring external support.
 

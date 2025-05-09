@@ -1,6 +1,6 @@
 # Memory Bank 系統升級：從單體到模組化
 
-[English](memory_bank_upgrade_guide.md) | 中文說明
+[English](../memory_bank_upgrade_guide.md) | 中文說明
 
 ## 前言
 

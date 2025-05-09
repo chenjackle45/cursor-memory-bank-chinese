@@ -1,6 +1,6 @@
 # CREATIVE 模式與 Claude「Think」工具
 
-[English](creative_mode_think_tool.md) | 中文說明
+[English](../creative_mode_think_tool.md) | 中文說明
 
 本文件說明 Memory Bank 的 CREATIVE 模式如何實作類似於 Anthropic Claude「Think」工具方法論的概念，詳見其 [工程部落格](https://www.anthropic.com/engineering/claude-think-tool)。
 

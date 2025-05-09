@@ -1,6 +1,6 @@
 # Memory Bank System Upgrade: From Monolithic to Modular
 
-[中文說明](memory_bank_upgrade_guide_chinese.md) | English
+[中文說明](./中文化/memory_bank_upgrade_guide_chinese.md) | English
 
 ## Introduction
 
